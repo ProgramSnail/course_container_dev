@@ -1,0 +1,3 @@
+[submodule "setup/opam-ansible"]
+	path = setup/opam-ansible
+	url = https://github.com/plescornet/opam-ansible

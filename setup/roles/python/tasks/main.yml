@@ -1,0 +1,21 @@
+- name: Installing tools for python dev
+  become: true
+  ansible.builtin.dnf5:
+    name:
+      - python
+      - pip
+      - pipx
+
+      - uv
+    state: latest
+
+- name: Install ty typechecker
+  ansible.builtin.command:
+    cmd: "uv tool install ty@latest"
+  changed_when: false
+
+- name: Install ruff lineter
+  ansible.builtin.command:
+    cmd: "uv tool install ruff@latest"
+  changed_when: false
+

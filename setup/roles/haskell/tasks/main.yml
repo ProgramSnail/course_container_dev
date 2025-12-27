@@ -1,0 +1,32 @@
+- name: Installing hlint # TODO: install by cabal (?)
+  become: true
+  ansible.builtin.dnf5:
+    name:
+      - hlint
+    state: latest
+
+- name: Downloading ghcup bootstrap script
+  ansible.builtin.uri:
+    url: https://get-ghcup.haskell.org
+    return_content: true
+  register: ghcup_bootstrap
+
+- name: Checking if .ghcup present
+  ansible.builtin.stat:
+    path: '{{ ansible_env.HOME }}/.ghcup'
+  register: ghcup_dir
+
+- name: Installing ghcup, stack, lsp server
+  ansible.builtin.shell: |
+      SHELL='/usr/bin/fish'
+      BOOTSTRAP_HASKELL_NONINTERACTIVE=1
+      BOOTSTRAP_HASKELL_GHC_VERSION=latest
+      BOOTSTRAP_HASKELL_CABAL_VERSION=latest
+      BOOTSTRAP_HASKELL_INSTALL_STACK=1
+      BOOTSTRAP_HASKELL_INSTALL_HLS=1
+      BOOTSTRAP_HASKELL_ADJUST_BASHRC=P
+      {{ ghcup_bootstrap.content }}
+  args:
+    executable: /bin/sh
+  changed_when: not ghcup_dir.stat.exists
+

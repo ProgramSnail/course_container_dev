@@ -1,0 +1,18 @@
+- name: Installing cli dev tools
+  become: true
+  ansible.builtin.dnf5:
+    name:
+      - vim
+      - helix
+      - micro
+      - tmux
+      - ripgrep
+      - git
+    state: latest
+
+- name: Linking tmux configuration
+  ansible.builtin.file:
+    src: '{{ role_path }}/files/.tmux.conf'
+    dest: '{{ ansible_env.HOME }}/.tmux.conf'
+    state: link
+    force: true

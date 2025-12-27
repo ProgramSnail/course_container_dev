@@ -1,0 +1,41 @@
+#install
+- name: Installing cli utils
+  become: true
+  ansible.builtin.dnf5:
+    name:
+      - bash
+      - fish
+      - trash-cli
+      - bat
+      - htop
+    state: latest
+
+# setup
+- name: Creating dotfiles dir
+  ansible.builtin.file:
+    path: "{{ ansible_env.HOME }}/.config"
+    state: directory
+    mode: a
+
+- name: Creating local bin dir
+  ansible.builtin.file:
+    path: "{{ ansible_env.HOME }}/.local/bin"
+    state: directory
+    mode: a
+
+- name: Copying bashrc
+  ansible.builtin.copy:
+    src: '{{ role_path }}/files/.bashrc'
+    dest: '{{ ansible_env.HOME }}/.bashrc'
+    force: false
+    mode: a
+
+- name: Getting programs list to check fish presence
+  ansible.builtin.package_facts:
+    manager: auto
+
+- name: Updating fish path to include local bin dir
+  ansible.builtin.shell: fish_add_path -m {{ ansible_env.HOME }}/.local/bin
+  args:
+    executable: /usr/bin/fish
+  changed_when: false

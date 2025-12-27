@@ -1,0 +1,12 @@
+- name: Confugure developmont environment
+  hosts: localhost
+  connection: local
+  roles:
+    - role: ansible
+    - role: common
+    - role: tools
+    - role: python
+    - role: haskell
+    - role: ocanren
+
+

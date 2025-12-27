@@ -1,0 +1,29 @@
+- name: Installing opam dependencies
+  become: true
+  ansible.builtin.dnf5:
+    name:
+      - gmp-devel
+    state: latest
+
+- name: Installing ocanren switch
+  ansible.builtin.import_role:
+    name: opam-ansible
+  vars:
+    opam_install_method: package_manager
+    opam_install_location: user
+    opam_switches:
+      - name: "default"
+        compiler: "--packages=ocaml-variants.5.3.0+options,ocaml-option-flambda"
+        packages:
+          - dune
+          - ocaml-lsp-server
+          - ocamlformat
+          - qcheck
+
+          - camlp5
+          - GT
+          - OCanren
+          - OCanren-ppx
+          - ppx_expect_nobase
+          - benchmark
+

@@ -1,0 +1,5 @@
+tmp/
+**.ssh
+.idea
+setup/.ansible/
+setup/galaxy_cache/

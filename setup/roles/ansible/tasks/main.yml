@@ -1,0 +1,9 @@
+- name: Installing ansible packages
+  become: true
+  ansible.builtin.dnf5:
+    name:
+      - ansible
+      - python3-github3py
+      - python3-rpm
+    state: latest
+
