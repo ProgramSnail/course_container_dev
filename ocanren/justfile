@@ -1,6 +1,5 @@
-enter:
-  eval (opam env)
-  -- TODO: fish only
+# TODO: update shell with just
+# eval $(opam env --switch=default)
 
 help:
  just -l
