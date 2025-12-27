@@ -1,0 +1,20 @@
+- name: Install opam using direct install
+  when: opam_install_method == 'direct'
+  become: true
+  block:
+    - name: Uninstall opam if it is already installed
+      ansible.builtin.package:
+        name: "{{ opam_package_name }}"
+        state: absent
+    - name: Installing opam external dependencies
+      ansible.builtin.package:
+        name: "{{ item }}"
+        state: present
+      loop: "{{ opam_external_dependencies }}"
+    - name: Install Opam using direct install script
+      ansible.builtin.expect:
+        command: bash -c "sh <(curl -fsSL https://opam.ocaml.org/install.sh) {{ opam_install_cli_options }}"
+        responses:
+          Where should it be installed ?: ""
+        timeout: 30
+        creates: "/usr/local/bin/opam"

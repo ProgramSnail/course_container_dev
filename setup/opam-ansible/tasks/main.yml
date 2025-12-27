@@ -1,0 +1,26 @@
+---
+- name: Install and configure opam
+  block:
+    - name: Install Opam executable {{ opam_install_method }}
+      ansible.builtin.include_tasks: install_opam/install_{{ opam_install_method }}.yml
+
+    - name: Configure Opam {{ opam_install_location }}
+      ansible.builtin.include_tasks: configure_opam/configure_{{ opam_install_location }}.yml
+
+    - name: Install Opam switches
+      ansible.builtin.import_tasks: install_switches.yml
+
+    - name: Execute postinstall configurations
+      block:
+        - ansible.builtin.import_tasks: postinstall/user-setup.yml
+
+        - ansible.builtin.import_tasks: postinstall/jupyter.yml
+
+        - ansible.builtin.import_tasks: postinstall/vscode.yml
+
+    - name: Configure the default switch as "{{ default_switch }}"
+      become: true
+      ansible.builtin.command:
+        cmd: "opam switch --root={{ (opam_install_location == 'system_wide') | ternary(opam_root_location_system_wide, opam_root_location_user) }} {{ default_switch }}"
+      changed_when: false
+      when: default_switch != ""
