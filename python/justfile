@@ -1,0 +1,10 @@
+help:
+ just -l
+
+test TASK_ID:
+ uv run pytest -v task{{TASK_ID}}/tests.py
+
+run TASK_ID:
+ uv run task{{TASK_ID}}/task.py
+
+ 

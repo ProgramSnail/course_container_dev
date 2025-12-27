@@ -1,0 +1,12 @@
+[project]
+name = "course_part_python"
+version = "0.1.0"
+description = "Python part of the course"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = []
+
+[dependency-groups]
+dev = [
+    "pytest>=9.0.2",
+]

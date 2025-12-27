@@ -1,0 +1,33 @@
+(lang dune 2.8)
+
+(name course_part_ocanren)
+
+(cram enable)
+
+(generate_opam_files true)
+
+(source
+ (github username/reponame))
+
+(authors "Author Name <author@example.com>")
+
+(maintainers "Maintainer Name <maintainer@example.com>")
+
+(license MIT)
+
+; (documentation https://url/to/documentation)
+
+(package
+ (name course_part_ocanren)
+ (synopsis "OCanren part of the course")
+ (version 0.1)
+ (maintainers "<empty>")
+ (depends
+  (dune
+   (>= 2.8))
+  (OCanren
+   (>= 0.3.0~))
+  (noCanren
+   (>= 0.3.0~))
+  (OCanren-ppx
+   (>= 0.3.0~))))

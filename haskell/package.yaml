@@ -1,0 +1,116 @@
+name: course-part-haskell
+version: 0.1.0.0
+github: "githubuser/course-part-haskell"
+license: BSD-3-Clause
+author: "Author name here"
+maintainer: "example@example.com"
+copyright: "2025 Author name here"
+
+spec-version: 0.36.0
+
+extra-source-files:
+- README.md
+
+# Metadata used when publishing your package
+# synopsis:            Short description of your package
+# category:            Web
+
+# To avoid duplicated efforts in documentation and dealing with the
+# complications of embedding Haddock markup inside cabal files, it is
+# common to point users to the README.md file.
+description: Please see the README on GitHub at <https://github.com/githubuser/course-part-haskell#readme>
+
+dependencies:
+  - base >= 4.7 && < 5
+  # - GenericPretty
+  # - containers
+  # - pretty
+  - random
+
+default-extensions:
+  - AllowAmbiguousTypes
+  - BlockArguments
+  - ConstraintKinds
+  - DataKinds
+  - DeriveFoldable
+  - DeriveFunctor
+  - DeriveGeneric
+  - DeriveTraversable
+  - DerivingStrategies
+  - DerivingVia
+  - EmptyCase
+  - FlexibleContexts
+  - FlexibleInstances
+  - FunctionalDependencies
+  - GADTs
+  - GeneralizedNewtypeDeriving
+  - ImportQualifiedPost
+  - InstanceSigs
+  - KindSignatures
+  - LambdaCase
+  - MultiParamTypeClasses
+  - NamedFieldPuns
+  - PatternSynonyms
+  - PolyKinds
+  - QuantifiedConstraints
+  - QuasiQuotes
+  - RankNTypes
+  - RecordWildCards
+  - ScopedTypeVariables
+  - StandaloneDeriving
+  - StandaloneKindSignatures
+  - TemplateHaskell
+  - TupleSections
+  - TypeApplications
+  - TypeFamilyDependencies
+  - TypeFamilies
+  - TypeOperators
+  - TypeSynonymInstances
+  - ViewPatterns
+
+ghc-options:
+  - -Wall
+  - -Wno-unrecognised-pragmas # to use hlint pragmas in source files
+  - -Wno-unused-imports  # imported by teacher should not cause warnings
+  - -Wno-redundant-constraints # teacher provides some constraints
+  - -Wno-noncanonical-monoid-instances # can be emitted by macro-generated code
+  - -Wno-noncanonical-monad-instances # can be emitted by macro-generated code
+  - -Wno-name-shadowing # just very inconvenient with helper functions
+
+internal-libraries:
+  utils:
+    source-dirs: utils
+  task0:
+    source-dirs: task0
+    dependencies:
+      - utils
+
+# executables:
+#   exe-task-exe:
+#     main: Main.hs
+#     source-dirs: exe-task
+#     ghc-options:
+#     - -threaded
+#     - -rtsopts
+#     - -with-rtsopts=-N
+#     dependencies:
+#     - ...
+
+tests:
+  test0:
+    main: Spec0.hs
+    source-dirs: test
+    ghc-options:
+      - -threaded
+      - -rtsopts
+      - -with-rtsopts=-N
+      - -Wno-orphans
+      - -Wno-type-defaults
+    dependencies:
+      - utils
+      - task0
+      - HUnit
+      - QuickCheck
+      # - quickcheck-classes-base
+      - generic-arbitrary
+      - generic-random

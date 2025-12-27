@@ -8,6 +8,7 @@
       - tmux
       - ripgrep
       - git
+      - just
     state: latest
 
 - name: Linking tmux configuration

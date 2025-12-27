@@ -1,0 +1,14 @@
+build:
+ hlint .
+ stack clean
+ stack build --test --no-run-tests
+
+help:
+ just -l
+
+test TASK_ID:
+ set -e
+ hlint .
+ # stack clean
+ stack build --test --no-run-tests
+ stack test --ghc-options="-Werror" course-part-haskell:test{{TASK_ID}}

@@ -1,0 +1,18 @@
+enter:
+  eval (opam env)
+  -- TODO: fish only
+
+help:
+ just -l
+
+build TASK_ID:
+ just task{{TASK_ID}}/build
+
+test TASK_ID:
+ just task{{TASK_ID}}/test
+
+build_all:
+ dune build
+
+test_all:
+ dune test

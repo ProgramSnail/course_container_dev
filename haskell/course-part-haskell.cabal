@@ -1,0 +1,183 @@
+cabal-version: 2.2
+
+-- This file has been generated from package.yaml by hpack version 0.37.0.
+--
+-- see: https://github.com/sol/hpack
+
+name:           course-part-haskell
+version:        0.1.0.0
+description:    Please see the README on GitHub at <https://github.com/githubuser/course-part-haskell#readme>
+homepage:       https://github.com/githubuser/course-part-haskell#readme
+bug-reports:    https://github.com/githubuser/course-part-haskell/issues
+author:         Author name here
+maintainer:     example@example.com
+copyright:      2025 Author name here
+license:        BSD-3-Clause
+license-file:   LICENSE
+build-type:     Simple
+extra-source-files:
+    README.md
+
+source-repository head
+  type: git
+  location: https://github.com/githubuser/course-part-haskell
+
+library task0
+  exposed-modules:
+      Task0
+  hs-source-dirs:
+      task0
+  default-extensions:
+      AllowAmbiguousTypes
+      BlockArguments
+      ConstraintKinds
+      DataKinds
+      DeriveFoldable
+      DeriveFunctor
+      DeriveGeneric
+      DeriveTraversable
+      DerivingStrategies
+      DerivingVia
+      EmptyCase
+      FlexibleContexts
+      FlexibleInstances
+      FunctionalDependencies
+      GADTs
+      GeneralizedNewtypeDeriving
+      ImportQualifiedPost
+      InstanceSigs
+      KindSignatures
+      LambdaCase
+      MultiParamTypeClasses
+      NamedFieldPuns
+      PatternSynonyms
+      PolyKinds
+      QuantifiedConstraints
+      QuasiQuotes
+      RankNTypes
+      RecordWildCards
+      ScopedTypeVariables
+      StandaloneDeriving
+      StandaloneKindSignatures
+      TemplateHaskell
+      TupleSections
+      TypeApplications
+      TypeFamilyDependencies
+      TypeFamilies
+      TypeOperators
+      TypeSynonymInstances
+      ViewPatterns
+  ghc-options: -Wall -Wno-unrecognised-pragmas -Wno-unused-imports -Wno-redundant-constraints -Wno-noncanonical-monoid-instances -Wno-noncanonical-monad-instances -Wno-name-shadowing
+  build-depends:
+      base >=4.7 && <5
+    , random
+    , utils
+  default-language: Haskell2010
+
+library utils
+  exposed-modules:
+      Utils
+  hs-source-dirs:
+      utils
+  default-extensions:
+      AllowAmbiguousTypes
+      BlockArguments
+      ConstraintKinds
+      DataKinds
+      DeriveFoldable
+      DeriveFunctor
+      DeriveGeneric
+      DeriveTraversable
+      DerivingStrategies
+      DerivingVia
+      EmptyCase
+      FlexibleContexts
+      FlexibleInstances
+      FunctionalDependencies
+      GADTs
+      GeneralizedNewtypeDeriving
+      ImportQualifiedPost
+      InstanceSigs
+      KindSignatures
+      LambdaCase
+      MultiParamTypeClasses
+      NamedFieldPuns
+      PatternSynonyms
+      PolyKinds
+      QuantifiedConstraints
+      QuasiQuotes
+      RankNTypes
+      RecordWildCards
+      ScopedTypeVariables
+      StandaloneDeriving
+      StandaloneKindSignatures
+      TemplateHaskell
+      TupleSections
+      TypeApplications
+      TypeFamilyDependencies
+      TypeFamilies
+      TypeOperators
+      TypeSynonymInstances
+      ViewPatterns
+  ghc-options: -Wall -Wno-unrecognised-pragmas -Wno-unused-imports -Wno-redundant-constraints -Wno-noncanonical-monoid-instances -Wno-noncanonical-monad-instances -Wno-name-shadowing
+  build-depends:
+      base >=4.7 && <5
+    , random
+  default-language: Haskell2010
+
+test-suite test0
+  type: exitcode-stdio-1.0
+  main-is: Spec0.hs
+  hs-source-dirs:
+      test
+  default-extensions:
+      AllowAmbiguousTypes
+      BlockArguments
+      ConstraintKinds
+      DataKinds
+      DeriveFoldable
+      DeriveFunctor
+      DeriveGeneric
+      DeriveTraversable
+      DerivingStrategies
+      DerivingVia
+      EmptyCase
+      FlexibleContexts
+      FlexibleInstances
+      FunctionalDependencies
+      GADTs
+      GeneralizedNewtypeDeriving
+      ImportQualifiedPost
+      InstanceSigs
+      KindSignatures
+      LambdaCase
+      MultiParamTypeClasses
+      NamedFieldPuns
+      PatternSynonyms
+      PolyKinds
+      QuantifiedConstraints
+      QuasiQuotes
+      RankNTypes
+      RecordWildCards
+      ScopedTypeVariables
+      StandaloneDeriving
+      StandaloneKindSignatures
+      TemplateHaskell
+      TupleSections
+      TypeApplications
+      TypeFamilyDependencies
+      TypeFamilies
+      TypeOperators
+      TypeSynonymInstances
+      ViewPatterns
+  ghc-options: -Wall -Wno-unrecognised-pragmas -Wno-unused-imports -Wno-redundant-constraints -Wno-noncanonical-monoid-instances -Wno-noncanonical-monad-instances -Wno-name-shadowing -threaded -rtsopts -with-rtsopts=-N -Wno-orphans -Wno-type-defaults
+  build-depends:
+      HUnit
+    , QuickCheck
+    , base >=4.7 && <5
+    , generic-arbitrary
+    , generic-random
+    , random
+    , task0
+    , utils
+  default-language: Haskell2010

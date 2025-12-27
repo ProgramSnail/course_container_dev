@@ -1,0 +1,4 @@
+test:
+  dune runtest
+build:
+  dune build
