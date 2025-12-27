@@ -1,0 +1,4 @@
+services:
+  devcontainer:
+    build: .
+    volumes: ./:/usr/local/tasks/
