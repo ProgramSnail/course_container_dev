@@ -1,7 +1,7 @@
 #install
 - name: Installing cli utils
   become: true
-  ansible.builtin.dnf5:
+  ansible.builtin.package:
     name:
       - bash
       - fish

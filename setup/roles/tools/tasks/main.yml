@@ -1,6 +1,6 @@
 - name: Installing cli dev tools
   become: true
-  ansible.builtin.dnf5:
+  ansible.builtin.package:
     name:
       - vim
       - helix

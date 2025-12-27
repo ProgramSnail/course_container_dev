@@ -1,4 +1,5 @@
-FROM quay.io/fedora/fedora-toolbox:42 
+# FROM quay.io/fedora/fedora-toolbox:42 
+FROM fedora:42 
 WORKDIR /usr/local/course
 
 RUN dnf install -y python ansible python3-github3py python3-rpm git make

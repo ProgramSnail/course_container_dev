@@ -1,6 +1,6 @@
 - name: Installing hlint # TODO: install by cabal (?)
   become: true
-  ansible.builtin.dnf5:
+  ansible.builtin.package:
     name:
       - hlint
     state: latest

@@ -1,6 +1,6 @@
 - name: Installing opam dependencies
   become: true
-  ansible.builtin.dnf5:
+  ansible.builtin.package:
     name:
       - gmp-devel
     state: latest
