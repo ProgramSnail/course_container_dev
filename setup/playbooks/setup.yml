@@ -3,10 +3,16 @@
   connection: local
   roles:
     - role: ansible
+      tags: env
     - role: common
+      tags: env
     - role: tools
+      tags: env
     - role: python
+      tags: python
     - role: haskell
+      tags: haskell
     - role: ocanren
+      tags: ocanren
 
 
