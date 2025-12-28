@@ -1,4 +1,8 @@
 services:
   devcontainer:
     build: .
-    volumes: ./:/usr/local/tasks/
+    image: docker.io/purpurebacterium/course_env:latest
+    volumes: .:/usr/local/tasks:z
+    tty: true
+    stdin_open: true
+    command: bash

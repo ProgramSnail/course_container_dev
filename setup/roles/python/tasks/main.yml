@@ -9,12 +9,12 @@
       - uv
     state: latest
 
-- name: Install ty typechecker
+- name: Installing ty typechecker
   ansible.builtin.command:
     cmd: "uv tool install ty@latest"
   changed_when: false
 
-- name: Install ruff lineter
+- name: Installing ruff lineter
   ansible.builtin.command:
     cmd: "uv tool install ruff@latest"
   changed_when: false

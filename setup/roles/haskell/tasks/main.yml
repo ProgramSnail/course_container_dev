@@ -30,3 +30,8 @@
     executable: /bin/sh
   changed_when: not ghcup_dir.stat.exists
 
+
+- name: Installing haskell language server
+  ansible.builtin.command:
+    cmd: "ghcup install hls 2.12.0.0"
+  changed_when: false
