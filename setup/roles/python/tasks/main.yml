@@ -3,8 +3,9 @@
   ansible.builtin.package:
     name:
       - python
-      - pip
-      - pipx
+      # NOTE: different names on different platforms
+      # - pip
+      # - pipx
 
       - uv
     state: latest

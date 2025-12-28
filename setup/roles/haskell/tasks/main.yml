@@ -33,5 +33,5 @@
 
 - name: Installing haskell language server
   ansible.builtin.command:
-    cmd: "ghcup install hls 2.12.0.0"
+    cmd: fish -c "ghcup install hls 2.12.0.0"
   changed_when: false

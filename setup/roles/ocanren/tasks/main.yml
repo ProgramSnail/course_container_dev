@@ -1,9 +1,10 @@
-- name: Installing opam dependencies
-  become: true
-  ansible.builtin.package:
-    name:
-      - gmp-devel
-    state: latest
+# NOTE: different names on different platforms
+# - name: Installing opam dependencies
+#   become: true
+#   ansible.builtin.package:
+#     name:
+#       - gmp-devel
+#     state: latest
 
 - name: Installing ocanren switch
   ansible.builtin.import_role:

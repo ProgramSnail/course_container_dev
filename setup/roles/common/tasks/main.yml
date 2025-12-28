@@ -6,7 +6,7 @@
       - bash
       - fish
       - trash-cli
-      - bat
+      # - bat
       - htop
     state: latest
 
