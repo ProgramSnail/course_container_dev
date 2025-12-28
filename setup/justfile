@@ -1,8 +1,12 @@
 help:
   just -l
 
-prepare:
+prepare_manual:
   sudo dnf install python ansible python3-github3py python3-rpm git make
+  # TODO: other package managers
+
+prepare_container:
+  sudo dnf install docker docker-compose just git make
   # TODO: other package managers
 
 install:
