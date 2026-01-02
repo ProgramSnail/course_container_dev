@@ -15,19 +15,52 @@ Windows *TODO*
 
 ## Установка
 
-4 варианта установки:
+Возможны 4 варианта установки необходимого окружения.
+Рекомендуется использовать вариант 1.
 
-1. **VSCode DevContainer *TODO***
+1. **В редакторе VSCode**
 
-Установка контейнеризированного окружения в VSCode
+- Установите расширениe `Dev Containers`:
 
-2. **DevPod: VSCodium, Intellij IDEA, Zed *TODO***
+https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers
 
-Настройка универсального контейнеризированного окружения
+- Запустите окружение в этом репозитории:
 
-3. **Docker Compose**
+https://code.visualstudio.com/docs/devcontainers/containers
 
-Использование контейнера напрямую
+2. **Через редакторы VSCodium (DevPod), Intellij IDEA, Zed (preview)**
+
+2.1. VSCodium
+
+2.1.1. Установка DevPod
+
+https://devpod.sh/docs/getting-started/install
+
+- Работа в GUI: См. https://devpod.sh/docs
+
+- Работа в CLI: 
+
+`devpod provider add docker` - инициализация
+
+`devpod up .` - запуск контейнера
+
+2.1.2. Установка расширений
+
+Установите расширения
+
+- https://open-vsx.org/extension/jeanp413/open-remote-ssh
+
+- https://open-vsx.org/extension/3timeslazy/vscodium-devpodcontainers
+
+2.2. Intellij IDEA
+
+https://www.jetbrains.com/help/idea/start-dev-container-inside-ide.html
+
+2.3. Zed Editor
+
+https://zed.dev/docs/dev-containers
+
+3. **С помощью Docker Compose**
 
 - `make up` или `just up` - запуск контейнера
 - `make down` или `just down` - остановка контейнера
@@ -39,14 +72,22 @@ Windows *TODO*
 - `PROJ=project TASK_ID=X make commit` или `just commit project X`
 - `make push` или `just push`
 
-4. (не рекоммендуется) Установка окружения без контейнера (с использованием ansible)
+---
+
+Mожно использовать редакторы внутри контейнера или подключить внешние контейнеры вручную
+
+- https://code.visualstudio.com/docs/devcontainers/attach-container
+
+- https://www.jetbrains.com/help/idea/docker-containers.html
+
+4. (не рекомендуется) Установка окружения без контейнера (с использованием ansible)
 Поддерживаются только Arch и Fedora
 
 - `cd setup && make prepare_manual && make install` или `cd setup && just prepare_manual && just install`
 
 ## Тестирование
 
-Работа с репозиторим внутри контейнера (из корневого каталога репозитория):
+Работа с репозиторием внутри контейнера (из корневого каталога репозитория):
 
 1. **Python**
 
@@ -59,6 +100,8 @@ Windows *TODO*
 - `just haskell/test X` - тестирование задачи X
 
 3. **OCanren**
+
+- Перед работой нужно инициализировать окружение: `eval $(opam env --switch=default)` (bash)  или `eval (opam env --switch=default)` (fish)
 
 - `just ocanren/build X` - сборка задачи X
 - `just ocanren/test X` - тестирование задачи X

@@ -1,5 +1,43 @@
 {
-  "build": {
-    "dockerfile": "../Dockerfile"
+  "image": "docker.io/purpurebacterium/course_env:latest",
+
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "python.languageServer": "None"
+      },
+      "extensions": [
+        "ocamllabs.ocaml-platform",
+        "haskell.haskell",
+        "ms-python.python",
+        "astral-sh.ty"
+      ]
+    },
+    "vscodium": {
+      "registries": {
+        "openvsx": {
+          "url": "https://open-vsx.org/vscode/gallery"
+        }
+      },
+      "extensions": {
+        "ocamllabs.ocaml-platform": {},
+        "haskell.haskell": {},
+        "ms-python.python": {},
+        "astral-sh.ty": {}
+      }
+    },
+    "jetbrains": {
+      "plugins": [
+        "boo.fox.haskelllsp",
+        "intellij-ocaml",
+        "PythonCore"
+      ]
+    },
+    "zed": {
+      "extensions": [
+        "ocaml",
+        "haskell"
+      ]
+    }
   }
 }
