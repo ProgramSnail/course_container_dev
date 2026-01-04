@@ -31,6 +31,8 @@ https://docs.docker.com/desktop/setup/install/windows-install/
 
 1. **В редакторе VSCode**
 
+- Редактор: https://code.visualstudio.com/download
+
 - Установите расширениe `Dev Containers`:
 
 https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers
