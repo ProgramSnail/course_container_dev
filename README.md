@@ -2,16 +2,27 @@
 
 ## Зависимости
 
-- `docker` или `podman` + `podman-docker`
-- `docker compose` или `podman-compose` (вариант установки 3)
-- `make` или `just`
+- **Linux**
 
 На Linux (Arch, Fedora, Ubuntu) зависимости можно установить командой
 `cd setup && make prepare_container` или `cd setup && just prepare_container`.
 
-Mac *TODO*
+Список зависимостей для установки вручную:
+1. `docker` или `podman` + `podman-docker`
+3. `docker compose` или `podman-compose` (вариант установки 3)
+3. `make` или `just`
 
-Windows *TODO*
+- **macOS**
+
+macOS: нужно установить Docker Desktop:
+
+https://docs.docker.com/desktop/setup/install/mac-install/
+
+- **Windows**
+
+Нужно установить Docker Desktop:
+
+https://docs.docker.com/desktop/setup/install/windows-install/
 
 ## Установка
 
