@@ -1,6 +1,11 @@
 {
-  "image": "docker.io/purpurebacterium/course_env:latest",
-
+  "build": {
+    "dockerfile": "Dockerfile",
+  },
+  "runArgs": [
+    "--userns=keep-id",
+    "--security-opt=label=disable"
+  ],
   "customizations": {
     "vscode": {
       "settings": {
