@@ -2,6 +2,7 @@
   "build": {
     "dockerfile": "Dockerfile",
   },
+  "containerUser": "root",
   "runArgs": [
     "--userns=keep-id",
     "--security-opt=label=disable"
