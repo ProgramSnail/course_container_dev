@@ -29,3 +29,6 @@ up:
 
 down:
   docker compose down
+
+pod_ssh:
+  ssh -t coursecontainerdev.devpod "cd /workspaces/coursecontainerdev ; fish --login"

@@ -26,7 +26,7 @@ https://docs.docker.com/desktop/setup/install/windows-install/
 
 ## Установка
 
-Возможны 4 варианта установки необходимого окружения.
+Возможны 5 вариантов установки необходимого окружения.
 Рекомендуется использовать вариант 1.
 
 1. **В редакторе VSCode**
@@ -56,6 +56,10 @@ https://devpod.sh/docs/getting-started/install
 `devpod provider add docker` - инициализация
 
 `devpod up .` - запуск контейнера
+
+`make ssh`, `just pod_ssh` или `ssh coursecontainerdev.devpod`- вход в devpod-контейнер
+
+Проект расположен в `/workspaces/coursecontainerdev`
 
 2.1.2. Установка расширений
 
@@ -97,6 +101,40 @@ Mожно использовать редакторы внутри контей�
 Поддерживаются только Arch и Fedora
 
 - `cd setup && make prepare_manual && make install` или `cd setup && just prepare_manual && just install`
+
+- Расширения VSCode: `ocamllabs.ocaml-platform`, `haskell.haskell`, `ms-python.python`, `astral-sh.ty`
+
+- Расширения Intellij IDEA: `boo.fox.haskelllsp`, `intellij-ocaml`, `PythonCore`
+
+5. (не рекомендуется) Ручная установка окружения без контейера
+
+- Установите `just` для запуска команд (не обязательно)
+
+- Haskell:
+
+`curl --proto '=https' --tlsv1.2 -sSf https://get-ghcup.haskell.org | sh`
+
+`ghcup install hls 2.12.0.0`
+
+- OCaml
+
+Установите opam из репозиториев или скриптом `bash -c "sh <(curl -fsSL https://opam.ocaml.org/install.sh)"`
+
+`opam switch create default --packages=ocaml-variants.5.3.0+options,ocaml-option-flambda`
+
+`eval $(opam env --switch=default)` (bash)  или `eval (opam env --switch=default)` (fish) - активация окружения
+
+Установите с помощью opam необходимые пакеты:
+
+`opam install dune ocaml-lsp-server ocamlformat qcheck camlp5 GT OCanren OCanren-ppx ppx_expect_nobase benchmark`
+
+- Python
+
+Рекомендуется установить пакетный менеджер `uv` и утилиты `ruff`, `ty`
+
+- Расширения VSCode: `ocamllabs.ocaml-platform`, `haskell.haskell`, `ms-python.python`, `astral-sh.ty`
+
+- Расширения Intellij IDEA: `boo.fox.haskelllsp`, `intellij-ocaml`, `PythonCore`
 
 ## Тестирование
 
