@@ -1,1 +1,1 @@
-FROM purpurebacterium/course_env:latest
+FROM docker.io/purpurebacterium/course_env:latest
