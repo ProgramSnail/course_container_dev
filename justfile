@@ -4,7 +4,7 @@ help:
   just -l
 
 # lang: python, ocanren or haskell
-commit PROJ TASK_ID: up
+commit PROJ TASK_ID: # up
   docker exec -it {{container}} fish -c "just {{PROJ}}/test {{TASK_ID}}"
   git add {{PROJ}}/task{{TASK_ID}}
   git commit -m "submit {{PROJ}}: task {{TASK_ID}}"
@@ -20,7 +20,7 @@ push:
 pull:
   git pull --rebase
 
-enter: up
+enter: # up
   docker exec -it {{container}} fish
   # TODO: name?
 

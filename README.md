@@ -122,7 +122,7 @@ Mожно использовать редакторы внутри контей�
 
 `opam switch create default --packages=ocaml-variants.5.3.0+options,ocaml-option-flambda`
 
-`eval $(opam env --switch=default)` (bash)  или `eval (opam env --switch=default)` (fish) - активация окружения
+`eval $(opam env --switch=default --set-switch)` (bash)  или `eval (opam env --switch=default --set-switch)` (fish) - активация окружения
 
 Установите с помощью opam необходимые пакеты:
 
